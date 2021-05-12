@@ -53,7 +53,7 @@ export default App; */}
 
 
 
-    export default function App(){
+/*     export default function App(){
     const[data,setData]=useState(null);  // setting initial state
     const[print,setPrint]=useState(false);
     function getData(val){
@@ -72,6 +72,21 @@ export default App; */}
           <button onClick={()=>setPrint(true)}>Print</button>          
         </div>
       );
-  }
+  } */
 
   
+  export default function App(){
+    const[status,setStatus]=useState(false);    // Setting status as false initially to hide on page load
+    return (
+        <div className="App">
+          {
+            status?
+            <h1>Text Content</h1>
+            :null
+          }
+          <button onClick={()=>setStatus(true)}>Show</button>          
+          <button onClick={()=>setStatus(false)}>Hide</button>          
+          <button onClick={()=>setStatus(!status)}>Toggle</button>          
+        </div>
+      );
+  }
