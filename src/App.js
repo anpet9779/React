@@ -1,45 +1,53 @@
 import React,{Component} from "react";
 import {useState} from 'react';
 import './App.css';
+import Student from "./Student";
 import User from './User'
-function App() {
-  const[data,setData]=useState(0);
-  function updateCount(){
-    setData(data+1);
+
+
+// 1.State and Props with Class Components
+
+/* For using class components need to call React and use Super inside constructor in order to use 'this' keyword  */
+
+class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      name :"Parag"   // Setting initial value in state
+    }
   }
-  console.log("rendered")
-  return (
-    <div className="App">
-      <h1>{data}</h1>
-      <button onClick={updateCount}>click here</button>
-      <User />
-    </div>
-  );
+  render(){
+    return (
+      <div className="App">
+        <h1>{this.state.name}</h1>
+        <button onClick={()=>this.setState({name:"Petkar"})}>click here</button>
+
+        <User />  {/* Way to access component  */}
+
+        <Student name={"parag"} text={["This is ", <strong> not </strong>,  "working."]}/>  {/*way to access components and pass Props */}
+      </div>
+    );
+  }
 }
 export default App;
 
 
 
-// import {useState} from 'react';
-// class App extends Component{
-//   constructor(){
-//     super();
-//     this.state = {
-//       data:0
-//     }
-//   }
+// 2.State and Props with Functional Components
 
-//   updateCount(){
-//     alert("clicked")
-//     this.setState({data:this.state.data+1})
-//   }
-//   render(){
-//     return (
-//       <div className="App">
-//         <h1>{this.state.data}</h1>
-//         <button onClick={()=>this.updateCount}>click here</button>
-//       </div>
-//     );
-//   }
-// }
-// export default App;
+/* For using state in functional components need call useState from 'react' */
+
+/*   export default function App(){
+    const[data,setData]=useState(0);  // setting initial state
+  
+    function updateCount(){
+      setData(data+1);
+    }
+      return (
+        <div className="App">
+          <h1>{data}</h1>
+          <button onClick={updateCount}>click here</button>
+        </div>
+      );
+  } */
+  
