@@ -1,5 +1,5 @@
-import React,{Component} from "react";
-import {useState} from 'react';
+import React, { Component } from "react";
+import { useState } from 'react';
 import './App.css';
 // import Student from "./Student";
 // import User from './User'
@@ -22,10 +22,10 @@ import './App.css';
 //         <h1>{this.state.name}</h1>
 //         <button onClick={()=>this.setState({name:"Petkar"})}>click here</button>
 
-        {/* <User />  Way to access component  */}
+{/* <User />  Way to access component  */ }
 
-        {/* <Student name={"parag"} text={["This is ", <strong> not </strong>,  "working."]}/>  way to access components and pass Props */}
-      {/* </div>
+{/* <Student name={"parag"} text={["This is ", <strong> not </strong>,  "working."]}/>  way to access components and pass Props */ }
+{/* </div>
     );
   }
 }
@@ -74,8 +74,8 @@ export default App; */}
       );
   } */
 
-  
-  export default function App(){
+
+/*   export default function App(){
     const[status,setStatus]=useState(false);    // Setting status as false initially to hide on page load
     return (
         <div className="App">
@@ -89,4 +89,31 @@ export default App; */}
           <button onClick={()=>setStatus(!status)}>Toggle</button>          
         </div>
       );
+  } */
+
+
+export default function App() {
+  const [name, setName] = useState("");    // Setting field blank
+  const [gender, setGender] = useState(null);
+  const [tnc, setTnc] = useState(false);
+
+  function getFormValue(e) {
+    e.preventDefault()
+    console.log(name, gender, tnc)
   }
+  return (
+    <div className="App">
+      <form onSubmit={getFormValue}>
+        <input type="text" placeholder="Name" onChange={(e) => setName(e.target.value)} /> <br /> <br />
+        <select onChange={(e) => setGender(e.target.value)}>
+          <option>Select Gender</option>
+          <option>Male</option>
+          <option>Female</option>
+        </select>  <br /> <br />
+        <input type="checkbox" onChange={(e) => setTnc(e.target.checked)} /> Terms and Conditions <br /> <br />
+        <button type="submit">Submit</button>
+      </form>
+
+    </div>
+  );
+}
