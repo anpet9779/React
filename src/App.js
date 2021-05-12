@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { useState } from 'react';
 import './App.css';
+import Profile from "./Profile";
 // import Student from "./Student";
 // import User from './User'
 
@@ -103,7 +104,7 @@ export default function App() {
   }
   return (
     <div className="App">
-      <form onSubmit={getFormValue}>
+     {/*  <form onSubmit={getFormValue}>
         <input type="text" placeholder="Name" onChange={(e) => setName(e.target.value)} /> <br /> <br />
         <select onChange={(e) => setGender(e.target.value)}>
           <option>Select Gender</option>
@@ -113,7 +114,8 @@ export default function App() {
         <input type="checkbox" onChange={(e) => setTnc(e.target.checked)} /> Terms and Conditions <br /> <br />
         <button type="submit">Submit</button>
       </form>
-
+ */}
+      <Profile />
     </div>
   );
 }
